@@ -4,6 +4,7 @@ import { Phone as Icon } from 'styled-icons/material';
 
 const StyledPhone = styled.p`
 margin: 0;
+color: #676a6c;
 font-size: 100%;
 `;
 

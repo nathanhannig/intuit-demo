@@ -1,11 +1,23 @@
 {
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false,
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
   "extends": "airbnb",
   "env": {
     "browser": true,
     "node": true,
-    "jest": true,
+    "jest": true
   },
   "rules": {
+    "strict": 0,
     "react/jsx-filename-extension": [1, {
       "extensions": [".js", ".jsx"]
     }],

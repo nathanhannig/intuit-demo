@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledContainer = styled.div`
+const StyledWrapper = styled.div`
 margin: 0 auto;
 max-width: 991px;
 background-color: #f3f3f4;
@@ -10,10 +10,10 @@ flex-direction: column;
 justify-content: center;
 `;
 
-const Container = ({ children, className }) => (
-  <StyledContainer className={className}>
+const Wrapper = ({ children, className }) => (
+  <StyledWrapper className={className}>
     {children}
-  </StyledContainer>
+  </StyledWrapper>
 );
 
-export default Container;
+export default Wrapper;

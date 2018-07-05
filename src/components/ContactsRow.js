@@ -7,15 +7,17 @@ const StyledContactsRow = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
+
   @media (min-width: 992px) {
     flex-direction: row;
-    justify-content: space-between;
   }
+
   &:first-child {
     margin-top: 10px;
   }
+
   &:last-child {
     margin-bottom: 10px;
   }
