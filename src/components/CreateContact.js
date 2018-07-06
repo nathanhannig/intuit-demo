@@ -149,11 +149,11 @@ const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
               </ErrorMessage>
             )}
             <Row right>
-              <Button onClick={handleCloseCreate}>
-                Cancel
-              </Button>
               <Button primary type="submit" disabled={isSubmitting}>
                 Create
+              </Button>
+              <Button type="button" onClick={handleCloseCreate}>
+                Cancel
               </Button>
             </Row>
           </form>

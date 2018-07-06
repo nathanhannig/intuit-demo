@@ -173,12 +173,9 @@ class EditContact extends Component {
               </ErrorMessage>
               )}
               <Row right>
-                <Button onClick={this.handleClosePage}>
-                  Cancel
-                </Button>
                 {isEdit ? (
                   <Button key="save" primary type="submit" disabled={isSubmitting}>
-                    Save
+                  Save
                   </Button>
                 ) : (
                   <Button key="edit" primary onClick={this.handleEnableEdit}>
@@ -187,6 +184,9 @@ class EditContact extends Component {
                     Edit
                   </Button>
                 )}
+                <Button type="button" onClick={this.handleClosePage}>
+                  Cancel
+                </Button>
               </Row>
             </form>
           )}
