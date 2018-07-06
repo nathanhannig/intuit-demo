@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Phone as Icon } from 'styled-icons/material';
 
@@ -15,5 +16,14 @@ const Phone = ({ children, className }) => (
     {children}
   </StyledPhone>
 );
+
+Phone.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Phone.defaultProps = {
+  className: undefined,
+};
 
 export default Phone;

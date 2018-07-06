@@ -1,14 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const StyledRow = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 
   ${({ right }) => right && css`
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: flex-end;
   `}
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    ${({ right }) => right && css`
+      justify-content: flex-end;
+      align-items: center;
+    `}
+  }
 `;
 
 const Row = (props) => {
@@ -19,6 +34,15 @@ const Row = (props) => {
       {children}
     </StyledRow>
   );
+};
+
+Row.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Row.defaultProps = {
+  className: undefined,
 };
 
 export default Row;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledDisplayInitial = styled.div`
@@ -28,5 +29,14 @@ const DisplayInitial = ({ children, className }) => (
     {children}
   </StyledDisplayInitial>
 );
+
+DisplayInitial.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+DisplayInitial.defaultProps = {
+  className: undefined,
+};
 
 export default DisplayInitial;

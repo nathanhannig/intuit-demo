@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const StyledSection = styled.div`
@@ -15,7 +16,7 @@ const StyledSection = styled.div`
 
   @media (min-width: 992px) {
     margin: 1rem auto;
-    min-width: 0;
+    min-width: 65%;
   }
 `;
 
@@ -27,6 +28,15 @@ const Section = (props) => {
       {children}
     </StyledSection>
   );
+};
+
+Section.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Section.defaultProps = {
+  className: undefined,
 };
 
 export default Section;

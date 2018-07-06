@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import Section from './Section';
 import Row from './Row';
 import Button from './Button';
+import Label from './Label';
 import Input from './Input';
+import ErrorMessage from './ErrorMessage';
 import { createContact } from '../actions';
 
 const Title = styled.h1`
@@ -15,21 +18,6 @@ max-width: 991px;
 flex: 1;
 color: #676a6c;
 font-size: 140%;
-`;
-
-const Label = styled.label`
-margin: 10px 0;
-width: 100%;
-flex: 1;
-font-size: 120%;
-`;
-
-const Error = styled.p`
-margin: 0px 0 10px 0;
-width: 100%;
-max-width: 991px;
-font-size: 100%;
-color: red;
 `;
 
 const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
@@ -103,9 +91,9 @@ const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
               </Label>
             </Row>
             {touched.name && errors.name && (
-              <Error>
+              <ErrorMessage>
                 {errors.name}
-              </Error>
+              </ErrorMessage>
             )}
             <Row>
               <Label htmlFor="phone">
@@ -120,9 +108,9 @@ const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
               </Label>
             </Row>
             {touched.phone && errors.phone && (
-              <Error>
+              <ErrorMessage>
                 {errors.phone}
-              </Error>
+              </ErrorMessage>
             )}
             <Row>
               <Label htmlFor="address">
@@ -138,9 +126,9 @@ const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
               </Label>
             </Row>
             {touched.address && errors.address && (
-              <Error>
+              <ErrorMessage>
                 {errors.address}
-              </Error>
+              </ErrorMessage>
             )}
             <Row>
               <Label htmlFor="nickname">
@@ -156,9 +144,9 @@ const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
               </Label>
             </Row>
             {touched.nickname && errors.nickname && (
-              <Error>
+              <ErrorMessage>
                 {errors.nickname}
-              </Error>
+              </ErrorMessage>
             )}
             <Row right>
               <Button onClick={handleCloseCreate}>
@@ -180,5 +168,10 @@ function mapDispatchToProps(dispatch) {
     dispatchCreate: contact => dispatch(createContact(contact)),
   };
 }
+
+CreateContact.propTypes = {
+  onCloseCreate: PropTypes.func.isRequired,
+  dispatchCreate: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(CreateContact);

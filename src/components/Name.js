@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledName = styled.p`
@@ -13,5 +14,14 @@ const Name = ({ children, className }) => (
     {children}
   </StyledName>
 );
+
+Name.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Name.defaultProps = {
+  className: undefined,
+};
 
 export default Name;

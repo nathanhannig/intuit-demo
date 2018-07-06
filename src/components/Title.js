@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h1`
@@ -15,5 +16,14 @@ const Title = ({ children, className }) => (
     {children}
   </StyledTitle>
 );
+
+Title.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Title.defaultProps = {
+  className: undefined,
+};
 
 export default Title;

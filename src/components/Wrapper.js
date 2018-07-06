@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
@@ -15,5 +16,14 @@ const Wrapper = ({ children, className }) => (
     {children}
   </StyledWrapper>
 );
+
+Wrapper.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Wrapper.defaultProps = {
+  className: undefined,
+};
 
 export default Wrapper;

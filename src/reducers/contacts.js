@@ -28,10 +28,13 @@ const initialState = {
     name: 'Dayle Fitzpayn', phone: '731-210-8652', address: '3 Packers Hill', nickname: 'Dayle',
   },
   9: {
-    name: 'Ardenia Jozef', phone: '133-152-9620', address: '46090 Ridge Oak Drive', nickname: 'Ardenia',
+    name: 'Nathan Hannig', phone: '133-152-9222', address: '46090 Ridge Oak Drive', nickname: 'Nate',
   },
   10: {
     name: 'Penni Martins', phone: '476-892-4217', address: '20481 Monterey Terrace', nickname: 'Penni',
+  },
+  11: {
+    name: 'Nathan Hannig', phone: '133-152-9233', address: '46090 Ridge Oak Drive', nickname: 'Nate',
   },
 };
 

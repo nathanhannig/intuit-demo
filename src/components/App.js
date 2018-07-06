@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Add as IconCreate } from 'styled-icons/material';
 import Header from './Header';
 import Title from './Title';
 import Wrapper from './Wrapper';
-import Section from './Section';
-import Row from './Row';
 import CreateContact from './CreateContact';
 import EditContact from './EditContact';
-import Button from './Button';
 import ContactsRow from './ContactsRow';
 import Contact from './Contact';
-
+import ShowContacts from './ShowContacts';
 
 class App extends Component {
   state = {
@@ -66,7 +63,7 @@ class App extends Component {
       if ((index + 1) % 3 === 0
         || index === Object.keys(contacts).length - 1) {
         contactsList.push((
-          <ContactsRow key={index}>
+          <ContactsRow key={id}>
             {[...contactsRow]}
           </ContactsRow>
         ));
@@ -91,16 +88,11 @@ class App extends Component {
         </Header>
         <Wrapper>
           { !showCreate && !showEdit && (
-          <Section>
-            <Row right>
-              <Button primary onClick={this.handleOpenCreate}>
-                <IconCreate size={16} />
-                {' '}
-                Create
-              </Button>
-            </Row>
-            {this.renderContacts()}
-          </Section>
+            <ShowContacts
+              onOpenCreate={this.handleOpenCreate}
+              onOpenEdit={this.handleOpenEdit}
+              contacts={contacts}
+            />
           )}
           { showCreate && (
             <CreateContact
@@ -125,5 +117,9 @@ function mapStateToProps(state) {
     contacts: state.contacts,
   };
 }
+
+App.propTypes = {
+  contacts: PropTypes.object.isRequired,
+};
 
 export default connect(mapStateToProps)(App);

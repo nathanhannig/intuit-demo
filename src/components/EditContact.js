@@ -1,28 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import { Edit as IconEdit, Delete as IconDelete } from 'styled-icons/material';
 import { Formik } from 'formik';
 import Section from './Section';
 import Row from './Row';
 import Button from './Button';
+import Label from './Label';
 import Input from './Input';
+import ErrorMessage from './ErrorMessage';
 import { updateContact, deleteContact } from '../actions';
-
-const Label = styled.label`
-margin: 10px 0;
-width: 100%;
-flex: 1;
-font-size: 120%;
-`;
-
-const Error = styled.p`
-margin: 0px 0 10px 0;
-width: 100%;
-max-width: 991px;
-font-size: 100%;
-color: red;
-`;
 
 class EditContact extends Component {
   state = {
@@ -65,15 +52,8 @@ class EditContact extends Component {
     return (
       <Section center>
         <Row right>
-          {!isEdit && (
-            <Button primary onClick={this.handleEnableEdit}>
-              <IconEdit size={16} />
-              {' '}
-              Edit
-            </Button>
-          )}
           <Button danger onClick={this.handleDeleteContact}>
-            <IconDelete size={16} />
+            <IconDelete size={16} title="Delete contact" />
             {' '}
             Delete
           </Button>
@@ -132,9 +112,9 @@ class EditContact extends Component {
                 </Label>
               </Row>
               {touched.name && errors.name && (
-              <Error>
+              <ErrorMessage>
                 {errors.name}
-              </Error>
+              </ErrorMessage>
               )}
               <Row>
                 <Label htmlFor="phone">
@@ -150,9 +130,9 @@ class EditContact extends Component {
                 </Label>
               </Row>
               {touched.phone && errors.phone && (
-              <Error>
+              <ErrorMessage>
                 {errors.phone}
-              </Error>
+              </ErrorMessage>
               )}
               <Row>
                 <Label htmlFor="address">
@@ -169,9 +149,9 @@ class EditContact extends Component {
                 </Label>
               </Row>
               {touched.address && errors.address && (
-              <Error>
+              <ErrorMessage>
                 {errors.address}
-              </Error>
+              </ErrorMessage>
               )}
               <Row>
                 <Label htmlFor="nickname">
@@ -188,17 +168,23 @@ class EditContact extends Component {
                 </Label>
               </Row>
               {touched.nickname && errors.nickname && (
-              <Error>
+              <ErrorMessage>
                 {errors.nickname}
-              </Error>
+              </ErrorMessage>
               )}
               <Row right>
                 <Button onClick={this.handleClosePage}>
                   Cancel
                 </Button>
-                {isEdit && (
-                  <Button primary type="submit" disabled={isSubmitting}>
+                {isEdit ? (
+                  <Button key="save" primary type="submit" disabled={isSubmitting}>
                     Save
+                  </Button>
+                ) : (
+                  <Button key="edit" primary onClick={this.handleEnableEdit}>
+                    <IconEdit size={16} title="Edit contact" />
+                    {' '}
+                    Edit
                   </Button>
                 )}
               </Row>
@@ -216,5 +202,13 @@ function mapDispatchToProps(dispatch) {
     dispatchDelete: contactId => dispatch(deleteContact(contactId)),
   };
 }
+
+EditContact.propTypes = {
+  onCloseEdit: PropTypes.func.isRequired,
+  dispatchUpdate: PropTypes.func.isRequired,
+  dispatchDelete: PropTypes.func.isRequired,
+  contactId: PropTypes.string.isRequired,
+  contact: PropTypes.object.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(EditContact);

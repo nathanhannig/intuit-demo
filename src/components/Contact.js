@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import DisplayInitial from './DisplayInitial';
 import Information from './Information';
@@ -67,6 +68,13 @@ const Contact = ({
       </Information>
     </Wrapper>
   );
+};
+
+Contact.propTypes = {
+  name: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  contactId: PropTypes.string.isRequired,
+  onOpenEdit: PropTypes.func.isRequired,
 };
 
 export default Contact;
