@@ -18,18 +18,18 @@ const Input = styled.input`
 `;
 
 const SearchBar = ({
-  onFilterTextChange, filterText, children, className,
+  onTextChange, text, children, className,
 }) => {
-  const handleFilterTextChange = (e) => {
-    onFilterTextChange(e.target.value);
+  const handleTextChange = (e) => {
+    onTextChange(e.target.value);
   };
 
   return (
     <Input
       type="text"
       placeholder="Search..."
-      value={filterText}
-      onChange={handleFilterTextChange}
+      value={text}
+      onChange={handleTextChange}
       className={className}
     >
       {children}
@@ -38,8 +38,8 @@ const SearchBar = ({
 };
 
 SearchBar.propTypes = {
-  onFilterTextChange: PropTypes.func.isRequired,
-  filterText: PropTypes.string.isRequired,
+  onTextChange: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
 };

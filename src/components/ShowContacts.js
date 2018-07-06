@@ -72,8 +72,8 @@ class ShowContacts extends Component {
       <Section>
         <Row right>
           <SearchBar
-            filterText={filterText}
-            onFilterTextChange={this.handleFilterTextChange}
+            text={filterText}
+            onTextChange={this.handleFilterTextChange}
           />
           <Button primary onClick={this.handleOpenCreate}>
             <IconCreate size={16} title="Create contact" />
