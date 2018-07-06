@@ -17,6 +17,7 @@
     git clone https://github.com/nathanhannig/intuit-demo.git
     cd intuit-demo
     npm install
+    npm start
 
 #### Tools
 * React (Create-React-App)
