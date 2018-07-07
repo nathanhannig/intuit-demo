@@ -3,7 +3,7 @@ import { CONTACT_CREATE, CONTACT_UPDATE, CONTACT_DELETE } from './types';
 
 export const createContact = (values) => {
   const contact = {
-    [uuidv4()]: { ...values },
+    [uuidv4()]: values,
   };
 
   return ({
@@ -14,7 +14,7 @@ export const createContact = (values) => {
 
 export const updateContact = (id, values) => {
   const contact = {
-    [id]: { ...values },
+    [id]: values,
   };
 
   return ({

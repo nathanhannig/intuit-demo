@@ -2,25 +2,6 @@ import { CONTACT_CREATE, CONTACT_UPDATE, CONTACT_DELETE } from '../actions/types
 
 const initialState = {};
 
-// // Test data makes 1000 contacts
-// for (let x = 0; x < 200; x += 5) {
-//   initialState[x] = {
-//     name: 'Yancey Goggan', phone: '478-854-0843', address: '9 Everett Parkway', nickname: 'Yancey',
-//   };
-//   initialState[x + 1] = {
-//     name: 'Hatty Barette', phone: '398-145-5093', address: '913 Troy Way', nickname: 'Hatty',
-//   };
-//   initialState[x + 2] = {
-//     name: 'Ethelred Tregian', phone: '778-653-7518', address: '4790 Canary Place', nickname: 'Ethelred',
-//   };
-//   initialState[x + 3] = {
-//     name: 'Cameron Landell', phone: '555-178-2927', address: '982 Mallard Pass', nickname: 'Cameron',
-//   };
-//   initialState[x + 4] = {
-//     name: 'Kermy Yakubov', phone: '677-266-9627', address: '733 Everett Way', nickname: 'Kermy',
-//   };
-// }
-
 // // Test data makes 11 contacts
 // const initialState = {
 //   1: {
@@ -63,7 +44,6 @@ export default function (state = initialState, action) {
 
   switch (action.type) {
     case CONTACT_CREATE:
-      return { ...state, ...action.payload };
     case CONTACT_UPDATE:
       return { ...state, ...action.payload };
     case CONTACT_DELETE:

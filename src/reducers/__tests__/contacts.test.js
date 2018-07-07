@@ -2,82 +2,115 @@ import reducer from '../contacts';
 import { CONTACT_CREATE, CONTACT_UPDATE, CONTACT_DELETE } from '../../actions/types';
 
 it('handles actions of type CONTACT_CREATE', () => {
-  const action = {
-    type: CONTACT_CREATE,
-    payload: {
-      '123-4567-890': {
-        name: 'Nathan Hannig',
-        phone: '133-152-9222',
-        address: '46090 Ridge Oak Drive',
-        nickname: 'Nate',
-      },
+  const contact = {
+    '123-4567-890': {
+      name: 'Test User 1',
+      phone: '133-152-9222',
+      address: '46090 Ridge Oak Drive',
+      nickname: 'User 1',
     },
   };
 
-  const newState = reducer({}, action);
+  const initialState = {};
 
-  expect(newState).toEqual({
-    '123-4567-890': {
-      name: 'Nathan Hannig',
-      phone: '133-152-9222',
-      address: '46090 Ridge Oak Drive',
-      nickname: 'Nate',
-    },
-  });
+  const action = {
+    type: CONTACT_CREATE,
+    payload: contact,
+  };
+
+  const newState = reducer(initialState, action);
+
+  // Check that reducer is pure function and
+  // did not mutate parameters
+  expect(action).toBe(action);
+  expect(contact).toBe(contact);
+
+  // Check that state has changed
+  expect(newState).not.toBe(initialState);
+
+  // Check the state has the correct data
+  expect(newState).toEqual(contact);
 });
 
 it('handles actions of type CONTACT_UPDATE', () => {
-  const action = {
-    type: CONTACT_UPDATE,
-    payload: {
-      '123-4567-890': {
-        name: 'Joe Smith',
-        phone: '133-152-9222',
-        address: '46090 Ridge Oak Drive',
-        nickname: 'Nate',
-      },
+  const contact = {
+    '123-4567-890': {
+      name: 'Test User 1 Updated',
+      phone: '133-152-9222',
+      address: '46090 Ridge Oak Drive',
+      nickname: 'User 1',
     },
   };
 
-  const newState = reducer({
+  const initialState = {
     '123-4567-890': {
-      name: 'Nathan Hannig',
+      name: 'Test User 1',
       phone: '133-152-9222',
       address: '46090 Ridge Oak Drive',
-      nickname: 'Nate',
+      nickname: 'User 1',
     },
-  }, action);
+  };
 
-  expect(newState).toEqual({
-    '123-4567-890': {
-      name: 'Joe Smith',
-      phone: '133-152-9222',
-      address: '46090 Ridge Oak Drive',
-      nickname: 'Nate',
-    },
-  });
+  const action = {
+    type: CONTACT_UPDATE,
+    payload: contact,
+  };
+
+  const newState = reducer(initialState, action);
+
+  // Check that reducer is pure function and
+  // did not mutate parameters
+  expect(action).toBe(action);
+  expect(contact).toBe(contact);
+
+  // Check that state has changed
+  expect(newState).not.toBe(initialState);
+
+  // Check the state has the correct data
+  expect(newState).toEqual(contact);
 });
 
 it('handles actions of type CONTACT_DELETE', () => {
-  const action = {
-    type: CONTACT_DELETE,
-    payload: '123-4567-890',
-  };
+  const contactId = '123-4567-890';
 
-  const newState = reducer({
+  const initialState = {
     '123-4567-890': {
-      name: 'Nathan Hannig',
+      name: 'Test User 1',
       phone: '133-152-9222',
       address: '46090 Ridge Oak Drive',
-      nickname: 'Nate',
+      nickname: 'User 1',
     },
-  }, action);
+  };
 
+  const action = {
+    type: CONTACT_DELETE,
+    payload: contactId,
+  };
+
+  const newState = reducer(initialState, action);
+
+  // Check that reducer is pure function and
+  // did not mutate parameters
+  expect(action).toBe(action);
+  expect(contactId).toBe(contactId);
+
+  // Check that state has changed
+  expect(newState).not.toBe(initialState);
+
+  // Check the state has the correct data
   expect(newState).toEqual({});
 });
 
 it('handles action with unknown type', () => {
-  const newState = reducer({}, {});
+  const initialState = {};
+  const action = {};
 
-  expect(newState).toEqual({});
+  const newState = reducer(initialState, action);
+
+  // Check that reducer is pure function and
+  // did not mutate parameters
+  expect(action).toBe(action);
+
+  // Check that state hasn't changed
+  expect(newState).toBe(initialState);
 });
