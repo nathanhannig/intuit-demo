@@ -12,12 +12,15 @@ import ErrorMessage from './ErrorMessage';
 import { createContact } from '../actions';
 
 const Title = styled.h1`
-margin: 10px 0;
-width: 100%;
+margin: 10px 1rem;
 max-width: 991px;
 flex: 1;
 color: #676a6c;
 font-size: 140%;
+`;
+
+const Description = styled.p`
+margin: 10px 1rem;
 `;
 
 const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
@@ -33,11 +36,11 @@ const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
   return (
     <Section center>
       <Title>
-        Create contact
+        Create Contact
       </Title>
-      <p>
+      <Description>
         Fill the form below to create a new contact.
-      </p>
+      </Description>
       <Formik
         initialValues={{
           name: '',

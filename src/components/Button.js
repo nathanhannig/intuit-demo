@@ -39,23 +39,14 @@ const StyledButton = styled.button`
   `}
 `;
 
-const Button = (props) => {
-  const { className, children, ...otherProps } = props;
-
-  return (
-    <StyledButton className={className} {...otherProps}>
-      {children}
-    </StyledButton>
-  );
-};
+const Button = ({ children, ...props }) => (
+  <StyledButton {...props}>
+    {children}
+  </StyledButton>
+);
 
 Button.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Button.defaultProps = {
-  className: undefined,
 };
 
 export default Button;

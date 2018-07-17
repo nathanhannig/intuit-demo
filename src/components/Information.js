@@ -8,19 +8,14 @@ padding: 12px;
 flex: 1;
 `;
 
-const Information = ({ children, className }) => (
-  <StyledInformation className={className}>
+const Information = ({ children, ...props }) => (
+  <StyledInformation {...props}>
     {children}
   </StyledInformation>
 );
 
 Information.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Information.defaultProps = {
-  className: undefined,
 };
 
 export default Information;

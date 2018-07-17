@@ -24,19 +24,14 @@ align-items: center;
 justify-content: center;
 `;
 
-const DisplayInitial = ({ children, className }) => (
-  <StyledDisplayInitial className={className}>
+const DisplayInitial = ({ children, ...props }) => (
+  <StyledDisplayInitial {...props}>
     {children}
   </StyledDisplayInitial>
 );
 
 DisplayInitial.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-DisplayInitial.defaultProps = {
-  className: undefined,
 };
 
 export default DisplayInitial;

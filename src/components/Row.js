@@ -26,23 +26,14 @@ const StyledRow = styled.div`
   }
 `;
 
-const Row = (props) => {
-  const { className, children, ...otherProps } = props;
-
-  return (
-    <StyledRow className={className} {...otherProps}>
-      {children}
-    </StyledRow>
-  );
-};
+const Row = ({ children, ...props }) => (
+  <StyledRow {...props}>
+    {children}
+  </StyledRow>
+);
 
 Row.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Row.defaultProps = {
-  className: undefined,
 };
 
 export default Row;

@@ -10,19 +10,14 @@ const StyledLabel = styled.label`
   font-size: 120%;
 `;
 
-const Label = ({ children, className }) => (
-  <StyledLabel className={className}>
+const Label = ({ children, ...props }) => (
+  <StyledLabel {...props}>
     {children}
   </StyledLabel>
 );
 
 Label.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Label.defaultProps = {
-  className: undefined,
 };
 
 export default Label;

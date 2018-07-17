@@ -11,19 +11,14 @@ flex-direction: column;
 justify-content: center;
 `;
 
-const Wrapper = ({ children, className }) => (
-  <StyledWrapper className={className}>
+const Wrapper = ({ children, ...props }) => (
+  <StyledWrapper {...props}>
     {children}
   </StyledWrapper>
 );
 
 Wrapper.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Wrapper.defaultProps = {
-  className: undefined,
 };
 
 export default Wrapper;

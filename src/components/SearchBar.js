@@ -18,7 +18,7 @@ const Input = styled.input`
 `;
 
 const SearchBar = ({
-  onTextChange, text, children, className,
+  onTextChange, text, children, ...props
 }) => {
   const handleTextChange = (e) => {
     onTextChange(e.target.value);
@@ -30,7 +30,7 @@ const SearchBar = ({
       placeholder="Search..."
       value={text}
       onChange={handleTextChange}
-      className={className}
+      {...props}
     >
       {children}
     </Input>
@@ -41,12 +41,10 @@ SearchBar.propTypes = {
   onTextChange: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   children: PropTypes.node,
-  className: PropTypes.string,
 };
 
 SearchBar.defaultProps = {
   children: undefined,
-  className: undefined,
 };
 
 export default SearchBar;

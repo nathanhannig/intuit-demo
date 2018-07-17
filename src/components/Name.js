@@ -9,19 +9,14 @@ color: #3382bd;
 font-size: 120%;
 `;
 
-const Name = ({ children, className }) => (
-  <StyledName className={className}>
+const Name = ({ children, ...props }) => (
+  <StyledName {...props}>
     {children}
   </StyledName>
 );
 
 Name.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Name.defaultProps = {
-  className: undefined,
 };
 
 export default Name;

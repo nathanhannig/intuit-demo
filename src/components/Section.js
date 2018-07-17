@@ -16,27 +16,18 @@ const StyledSection = styled.div`
 
   @media (min-width: 992px) {
     margin: 1rem auto;
-    min-width: 65%;
+    min-width: 100%;
   }
 `;
 
-const Section = (props) => {
-  const { className, children, ...otherProps } = props;
-
-  return (
-    <StyledSection className={className} {...otherProps}>
-      {children}
-    </StyledSection>
-  );
-};
+const Section = ({ children, ...props }) => (
+  <StyledSection {...props}>
+    {children}
+  </StyledSection>
+);
 
 Section.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Section.defaultProps = {
-  className: undefined,
 };
 
 export default Section;

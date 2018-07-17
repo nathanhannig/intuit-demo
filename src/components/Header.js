@@ -19,19 +19,14 @@ const StyledHeader = styled.header`
   );
 `;
 
-const Header = ({ children, className }) => (
-  <StyledHeader className={className}>
+const Header = ({ children, ...props }) => (
+  <StyledHeader {...props}>
     {children}
   </StyledHeader>
 );
 
 Header.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Header.defaultProps = {
-  className: undefined,
 };
 
 export default Header;

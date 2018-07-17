@@ -11,19 +11,14 @@ const StyledTitle = styled.h1`
   font-size: 140%;
 `;
 
-const Title = ({ children, className }) => (
-  <StyledTitle className={className}>
+const Title = ({ children, ...props }) => (
+  <StyledTitle {...props}>
     {children}
   </StyledTitle>
 );
 
 Title.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Title.defaultProps = {
-  className: undefined,
 };
 
 export default Title;

@@ -29,8 +29,7 @@ class ShowContacts extends Component {
     const { filterText } = this.state;
     const { onOpenEdit, contacts } = this.props;
     const lowercaseFilterText = filterText.toLowerCase();
-    const contactsList = [];
-    let contactsRow = [];
+    const contactsRow = [];
 
     Object.keys(contacts).forEach((id, index) => {
       if (contacts[id].name.toLowerCase().indexOf(lowercaseFilterText) !== -1) {
@@ -46,21 +45,13 @@ class ShowContacts extends Component {
           />
         ));
       }
-
-      // Wrap ContactsRow around every sets of 3 Contact
-      // components or around the last set
-      if (contactsRow.length === 3
-        || index === Object.keys(contacts).length - 1) {
-        contactsList.push((
-          <ContactsRow key={id}>
-            {[...contactsRow]}
-          </ContactsRow>
-        ));
-
-        // Clear for the next batch of Contact components
-        contactsRow = [];
-      }
     });
+
+    const contactsList = (
+      <ContactsRow>
+        {[...contactsRow]}
+      </ContactsRow>
+    );
 
     return contactsList;
   };

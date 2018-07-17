@@ -9,8 +9,8 @@ color: #676a6c;
 font-size: 100%;
 `;
 
-const Phone = ({ children, className }) => (
-  <StyledPhone className={className}>
+const Phone = ({ children, ...props }) => (
+  <StyledPhone {...props}>
     <Icon size={16} title="Phone Number" />
     {' '}
     {children}
@@ -18,12 +18,7 @@ const Phone = ({ children, className }) => (
 );
 
 Phone.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Phone.defaultProps = {
-  className: undefined,
 };
 
 export default Phone;

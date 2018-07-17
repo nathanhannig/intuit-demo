@@ -9,7 +9,8 @@ const StyledContactsRow = styled.div`
   flex: 1;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
+  flex-wrap: wrap;
 
   @media (min-width: 992px) {
     flex-direction: row;
@@ -24,19 +25,14 @@ const StyledContactsRow = styled.div`
   }
 `;
 
-const ContactsRow = ({ children, className }) => (
-  <StyledContactsRow className={className}>
+const ContactsRow = ({ children, ...props }) => (
+  <StyledContactsRow {...props}>
     {children}
   </StyledContactsRow>
 );
 
 ContactsRow.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-ContactsRow.defaultProps = {
-  className: undefined,
 };
 
 export default ContactsRow;

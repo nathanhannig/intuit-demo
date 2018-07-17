@@ -17,23 +17,17 @@ ${({ disabled }) => disabled && css`
 `}
 `;
 
-const Input = (props) => {
-  const { className, children, ...otherProps } = props;
-
-  return (
-    <StyledInput className={className} {...otherProps}>
-      {children}
-    </StyledInput>
-  );
-};
+const Input = ({ children, ...props }) => (
+  <StyledInput {...props}>
+    {children}
+  </StyledInput>
+);
 
 Input.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
 };
 
 Input.defaultProps = {
-  className: undefined,
   children: undefined,
 };
 
