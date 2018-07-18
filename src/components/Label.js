@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const StyledLabel = styled.label`
   margin: 10px 0;
-  padding: 0 1rem;
   width: 100%;
   flex: 1;
   font-size: 120%;

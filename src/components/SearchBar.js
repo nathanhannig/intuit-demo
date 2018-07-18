@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Input = styled.input`
-  padding: 0.5em;
-  margin: 0.5em auto;
+  padding: 0.5rem;
+  margin: 0.5rem auto;
   width: 100%;
   color: #000;
   background-color: #ddd;
@@ -27,6 +27,8 @@ const SearchBar = ({
   return (
     <Input
       type="text"
+      name="search"
+      aria-label="Search"
       placeholder="Search..."
       value={text}
       onChange={handleTextChange}

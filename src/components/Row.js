@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const StyledRow = styled.div`
+  padding: 0 0.5rem;
   width: 100%;
   display: flex;
   flex-direction: column;

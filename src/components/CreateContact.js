@@ -12,7 +12,7 @@ import ErrorMessage from './ErrorMessage';
 import { createContact } from '../actions';
 
 const Title = styled.h1`
-margin: 10px 1rem;
+margin: 10px 0;
 max-width: 991px;
 flex: 1;
 color: #676a6c;
@@ -20,7 +20,7 @@ font-size: 140%;
 `;
 
 const Description = styled.p`
-margin: 10px 1rem;
+margin: 10px 0;
 `;
 
 const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
@@ -35,12 +35,16 @@ const CreateContact = ({ onCloseCreate, dispatchCreate }) => {
 
   return (
     <Section center>
-      <Title>
-        Create Contact
-      </Title>
-      <Description>
-        Fill the form below to create a new contact.
-      </Description>
+      <Row>
+        <Title>
+          Create Contact
+        </Title>
+      </Row>
+      <Row>
+        <Description>
+          Fill the form below to create a new contact.
+        </Description>
+      </Row>
       <Formik
         initialValues={{
           name: '',

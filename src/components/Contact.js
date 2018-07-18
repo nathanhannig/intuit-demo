@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 margin: 0px;
 padding: 15px;
 width: 100%;
+background-color: #f0f0f0;
 display: flex;
 flex: 1;
 justify-content: center;

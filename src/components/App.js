@@ -6,8 +6,6 @@ import Title from './Title';
 import Wrapper from './Wrapper';
 import CreateContact from './CreateContact';
 import EditContact from './EditContact';
-import ContactsRow from './ContactsRow';
-import Contact from './Contact';
 import ShowContacts from './ShowContacts';
 
 class App extends Component {
@@ -39,42 +37,6 @@ class App extends Component {
     });
   }
 
-  renderContacts = () => {
-    const { contacts } = this.props;
-
-    const contactsList = [];
-    let contactsRow = [];
-
-    Object.keys(contacts).forEach((id, index) => {
-      contactsRow.push((
-        <Contact
-          key={id}
-          contactId={id}
-          name={contacts[id].name}
-          nickname={contacts[id].nickname}
-          phone={contacts[id].phone}
-          address={contacts[id].address}
-          onOpenEdit={this.handleOpenEdit}
-        />
-      ));
-
-      // Wrap ContactsRow around every sets of 3 Contact
-      // components or around the last set
-      if ((index + 1) % 3 === 0
-        || index === Object.keys(contacts).length - 1) {
-        contactsList.push((
-          <ContactsRow key={id}>
-            {[...contactsRow]}
-          </ContactsRow>
-        ));
-
-        contactsRow = [];
-      }
-    });
-
-    return contactsList;
-  }
-
   render() {
     const { showCreate, showEdit, activeContactId } = this.state;
     const { contacts } = this.props;
@@ -82,9 +44,11 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header>
-          <Title>
-            Contact List
-          </Title>
+          <Wrapper>
+            <Title>
+              Contact List
+            </Title>
+          </Wrapper>
         </Header>
         <Wrapper>
           { !showCreate && !showEdit && (

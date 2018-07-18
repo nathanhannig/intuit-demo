@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const StyledContactsRow = styled.div`
   width: 100%;
-  background-color: #f0f0f0;
   display: flex;
   flex: 1;
   flex-direction: column;
