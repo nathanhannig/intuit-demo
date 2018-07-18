@@ -31,7 +31,7 @@ class ShowContacts extends Component {
     const lowercaseFilterText = filterText.toLowerCase();
     const contactsRow = [];
 
-    Object.keys(contacts).forEach((id, index) => {
+    Object.keys(contacts).forEach((id) => {
       if (contacts[id].name.toLowerCase().indexOf(lowercaseFilterText) !== -1) {
         contactsRow.push((
           <Contact

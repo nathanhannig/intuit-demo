@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const StyledTitle = styled.h1`
   margin: 10px;
-  width: 100%;
   max-width: 991px;
   flex: 1;
   color: #fff;
